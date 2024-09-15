@@ -1,53 +1,42 @@
-import type { Meta, StoryObj } from "@storybook/html";
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { fn } from "@storybook/test";
+import GN1240100EComponent from "./GN1240100EComponent.vue";
+import { useA11yUrl } from "@use/useA11yUrl";
 
-type A11yArgs = {
-  label: string;
-};
-
-// GN1240100E 元件
-const GN1240100EComponent = () =>
-  `<a href="#" class="visually-hidden-focusable">Skip to main content</a>`;
-
-const meta: Meta<A11yArgs> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/configure/#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  tags: ["autodocs"],
+const a11yUrl = useA11yUrl(import.meta.url);
+const meta: Meta<typeof GN1240100EComponent> = {
   component: GN1240100EComponent,
   parameters: {
     docs: {
       subtitle: "在每一個頁面頂端加入一個鏈結，直接連往主要的內容區域",
       description: {
-        component: `<a href='https://accessibility.moda.gov.tw/Download/Detail/1658?Category=64'>網站無障礙規範（110年）：稽核評量碼</a>`,
+        component: `${a11yUrl.storyTitleMasterLayout}${a11yUrl.storyCheckReadme("按下鍵盤Tab鍵遊走，並檢視頁面頂端是否出現「跳到主要內容區」連結")}<a id="main-content" href='https://accessibility.moda.gov.tw/Download/Detail/1658?Category=64' target="_target">主要內容導盲磚 - 網站無障礙規範（110年）：稽核評量碼</a>`,
       },
     },
   },
 };
 
 export default meta;
-type Story = StoryObj<A11yArgs>;
+type Story = StoryObj<typeof GN1240100EComponent>;
 
-export const Default: Story = {
-  render: () => GN1240100EComponent(),
+export const Static: Story = {
+  args: {
+    label: "跳到主要內容區塊",
+    type: "static",
+  },
   parameters: {
     docs: {
-      title: "Defautl Ttile",
-      subtitle: "Defautl subtitle",
       description: {
-        story:
-          "使用鍵盤操作時，對於每個游標選取之超連結或表單元件，請提供應有的焦點樣式變化（使用CSS樣式表），或瀏覽器（如Edge或FIREFOX瀏覽器）預設之虛線框，以利鍵盤使用者識別游標位置。全網站如有相同問題請一併修正。",
-      },
-      canvas: {
-        sourceState: "shown",
+        story: "焦點時出現。",
       },
     },
   },
 };
 
-export const Secondary: Story = {
-  render: () =>
-    `<a href="#main-content" class="absolute left-0 top-0 bg-blue-500 text-white py-2 px-4 z-50 transform -translate-y-full focus:translate-y-0 transition">Skip to main content</a>`,
+export const Animation: Story = {
+  args: {
+    type: "animation",
+  },
   parameters: {
     docs: {
       title: "Defautl Ttile",
