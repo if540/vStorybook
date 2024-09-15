@@ -10,7 +10,7 @@ const meta: Meta<typeof CS1140101EComponent> = {
     docs: {
       subtitle: "當使用者介面元件取得焦點時，使用 CSS 變更其呈現方式",
       description: {
-        component: `${a11yUrl.storyTitleMasterLayout}使用鍵盤操作時，對於每個游標選取之超連結或表單元件，請提供應有的焦點樣式變化（使用 CSS 樣式表），或瀏覽器（如Edge或FIREFOX瀏覽器）預設之虛線框，以利鍵盤使用者識別游標位置。全網站如有相同問題請一併修正。`,
+        component: `${a11yUrl.storyTitleMasterLayout}${a11yUrl.storyCheckReadme("檢查原始碼 CSS 設定焦點樣式的部分。")}使用鍵盤操作時，對於每個游標選取之超連結或表單元件，請提供應有的焦點樣式變化（使用 CSS 樣式表），或瀏覽器（如Edge或FIREFOX瀏覽器）預設之虛線框，以利鍵盤使用者識別游標位置。`,
       },
     },
   },

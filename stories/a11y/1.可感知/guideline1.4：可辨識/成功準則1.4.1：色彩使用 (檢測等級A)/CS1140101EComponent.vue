@@ -1,5 +1,5 @@
 <template>
-  <a href="#" :title="label" :class="classes" @click="onClick" :style="style">{{ label }}</a>
+  <a href="#" :title="label" :class="classes" :style="style" target="_self">{{ label }}</a>
 </template>
 
 <script setup lang="ts">
@@ -7,6 +7,7 @@ import { computed } from 'vue';
 // import './button.css';
 
 interface MyComponentProps {
+  name?: string;
   /** The name of the label */
   label?: string;
   /**
@@ -20,11 +21,12 @@ interface MyComponentProps {
 }
 
 const props = withDefaults(defineProps<MyComponentProps>(), {
+  name: "可焦點",
   label: '測試焦點時CSS呈現',
   primary: true,
 });
 
-const emit = defineEmits(['click']);
+// const emit = defineEmits(['click']);
 
 const classes = computed(() => ({
   'focus-within:outline-4 focus-within:outline-dashed focus-within:outline-red-600': props.type == 'outline',
@@ -33,8 +35,4 @@ const classes = computed(() => ({
 
 const style = computed(() => ({
 }));
-
-const onClick = () => {
-  emit('click');
-};
 </script>
