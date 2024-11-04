@@ -16,7 +16,10 @@ const config = {
     "@whitespace/storybook-addon-html",
     "@storybook/addon-docs",
     "@storybook/docs-tools",
-    "@storybook/addon-mdx-gfm"
+    "@storybook/addon-mdx-gfm",
+    "@storybook/addon-viewport",
+    "@storybook/addon-a11y",
+    // "@storybook/addon-storysource"
   ],
 
   framework: {

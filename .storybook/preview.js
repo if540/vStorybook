@@ -12,9 +12,19 @@ const preview = {
       },
     },
     docs: {
-      canvas: {
-        sourceState: 'shown'
-      }
+      // canvas: {
+      //   sourceState: 'shown',
+      // },
+      toc: true, 
+      source: {
+        language: 'html',
+        transform: function(code, storyContext) {
+          // const app = h('a', storyContext.argTypes);
+          // console.log('storyContext', storyContext)
+          // parameters.docs.source.transform
+          return code
+        }
+      },
     },
   },
   options: {
