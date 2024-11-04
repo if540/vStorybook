@@ -1,0 +1,86 @@
+table {
+  &.table-border {
+    td,
+      th {
+        @apply border border-slate-700 p-1;
+      }
+  }
+  &.table-border-b {
+    > :not(thead) tr:not(:last-child) {
+      td,
+      th {
+        @apply border-b border-b-slate-700 p-1;
+      }
+    }
+  }
+}
+
+caption {
+  @apply text-xl font-bold p-2;
+}
+
+
+.rwdTable {
+  [data-th]::before {
+    content: attr(data-th);
+    @apply hidden flex-shrink-0 font-bold text-left;
+  }
+  // @media (max-width: 580px) {
+    thead {
+      @apply sr-only;
+    }
+  
+    /* 卡片列表容器 */
+    tbody {
+      @apply flex flex-col gap-y-3;
+    }
+  
+    /* 卡片 */
+    tr {
+      @apply border-slate-700 border;
+    }
+  
+    /* 資料列 */
+    td {
+      @apply w-full flex border-none;
+    }
+  
+    /* 資料標題 */
+    [data-th]::before {
+      @apply block w-1/4;
+    }
+  // }
+}
+
+.rwdTable2 {
+  [data-th]::before {
+    content: attr(data-th);
+    @apply hidden flex-shrink-0 font-bold text-left text-sm text-gray-400;
+  }
+  // @media (max-width: 580px) {
+    thead {
+      @apply sr-only;
+    }
+  
+    /* 卡片列表容器 */
+    tbody {
+      @apply flex flex-col gap-y-3;
+    }
+  
+    /* 卡片 */
+    tr {
+      @apply border-slate-700 border;
+    }
+  
+    /* 資料列 */
+    td {
+      @apply w-full flex flex-col items-start border-none;
+    }
+  
+    /* 資料標題 */
+    [data-th]::before {
+      @apply block w-1/4;
+    }
+  // }
+}
+
