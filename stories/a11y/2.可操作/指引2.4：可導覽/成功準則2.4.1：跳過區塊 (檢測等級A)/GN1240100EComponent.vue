@@ -10,7 +10,7 @@ interface MyComponentProps {
   /** The name of the label */
   label?: string;
   /** 類型 */
-  type: 'static' | 'animation',
+  type: 'static' | 'animationTranslateX' | 'animationTranslateY',
   /** Link to main content */
   href: string;
 }
@@ -24,7 +24,8 @@ const props = withDefaults(defineProps<MyComponentProps>(), {
 
 const classes = computed(() => ({
   'visually-hidden-focusable': props.type === 'static',
-  'absolute top-0 left-0 z-50 px-4 py-2 text-white transition transform -translate-y-full bg-blue-500 focus:translate-y-0': props.type === 'animation'
+  'absolute top-0 left-0 z-50 px-4 py-2 text-white transition transform -translate-x-full bg-blue-500 focus:translate-x-0': props.type === 'animationTranslateX',
+  'absolute top-0 left-0 z-50 px-4 py-2 text-white transition transform -translate-y-full bg-blue-500 focus:translate-y-0': props.type === 'animationTranslateY'
 }));
 
 const style = computed(() => ({
