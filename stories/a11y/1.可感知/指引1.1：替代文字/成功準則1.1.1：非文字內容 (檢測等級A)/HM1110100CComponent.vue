@@ -1,5 +1,10 @@
 <template>
-  <img :src="src" :alt="alt" />
+  <template v-if="type == 'hasLink'">
+    <a href="https://storybook.js.org/" target="_blank" :title="linkTitle"><img :src="src" :alt="alt" /></a>
+  </template>
+  <template v-else>
+    <img :src="src" :alt="alt" />
+  </template>
 </template>
 
 <script setup lang="ts">
@@ -11,13 +16,15 @@ interface MyComponentProps {
   src: string;
   /** 圖片替代文字 */
   alt?: string;
-  /** 圖片類型，一般圖片|裝飾性圖片 */
-  type: 'normal' | 'decoration';
+  /** 連結標題 */
+  linkTitle?: string;
+  /** 圖片類型，一般圖片|裝飾性圖片|具有連結目用途的圖片超連結 */
+  type: 'normal' | 'decoration' | 'hasLink';
 }
 
 const props = withDefaults(defineProps<MyComponentProps>(), {
   name: "一般圖片",
-  src: "/stories/assets/storylogo.svg",
+  src: "assets/storylogo.svg",
   alt: "StoryBookJS Logo",
   type: 'normal'
 });
@@ -25,8 +32,6 @@ const props = withDefaults(defineProps<MyComponentProps>(), {
 // const emit = defineEmits(['click']);
 
 const classes = computed(() => ({
-  'focus-within:outline-4 focus-within:outline-dashed focus-within:outline-red-600': props.type == 'outline',
-  'focus-within:border-4 focus-within:border-dashed focus-within:outline-0 focus-within:border-red-600': props.type == 'border',
 }));
 
 const style = computed(() => ({
