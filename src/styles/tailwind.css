@@ -20,3 +20,22 @@
 .focus-not-focus-visual:focus:not(:focus-visible) {
   outline: 1px dashed red;
 }
+
+/* Helper */
+.code {
+  line-height: 1;
+  margin: 0 2px;
+  padding: 3px 5px;
+  white-space: nowrap;
+  border-radius: 3px;
+  font-size: 13px;
+  border: 1px solid #ECF4F9;
+  color: rgba(46, 52, 56, 0.9);
+  background-color: #F7FAFC;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.componentStoryTip {
+  @apply block mt-3 mb-1 text-xs font-bold text-gray-500;
+}

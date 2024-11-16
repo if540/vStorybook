@@ -19,6 +19,7 @@ const config = {
     "@storybook/addon-mdx-gfm",
     "@storybook/addon-viewport",
     "@storybook/addon-a11y",
+    "storybook-addon-tag-badges",
     // "@storybook/addon-storysource"
   ],
 
@@ -44,3 +45,6 @@ const config = {
   docs: {}
 };
 export default config;
+
+// 自訂議 tag-badges
+// https://github.com/Sidnioulz/storybook-addon-tag-badges?ref=storybookblog.ghost.io
